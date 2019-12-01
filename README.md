@@ -9,5 +9,5 @@
 2. Open Project Directory in Visual studio code editor.
 
 3. Click to Go Live from the status bar to turn the server on/off or Open the Command Pallete by pressing F1 or ctrl+shift+P and
-   type Live Server: Open With Live Server to start a server or
-   type Live Server: Stop Live Server to stop a server.
+   `type Live Server: Open With Live Server to start a server` or
+   `type Live Server: Stop Live Server to stop a server`.
