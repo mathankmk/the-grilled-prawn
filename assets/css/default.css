@@ -6,11 +6,11 @@ body {
   background: #f6f6f6;
 }
 
-.p--y80 {
+.p--x80 {
   padding-left: 80px;
   padding-right: 80px;
 }
-.p--y70 {
+.p--x70 {
   padding-left: 70px;
   padding-right: 70px;
 }
@@ -134,12 +134,43 @@ button {
 .header__link.active {
   font-weight: 700;
 }
+.hamburger span:before,
+.hamburger span:after {
+  background-color: #e9474b;
+  content: "";
+  height: 2px;
+  position: absolute;
+  width: 109%;
+  left: -1;
+}
+.hamburger span:before {
+  top: -8px;
+}
+.hamburger span:after {
+  top: 6px;
+}
+.hamburger,
+.hamburger:focus {
+  display: block;
+  background-color: transparent;
+  border: 1px solid #e9474b;
+  box-shadow: none;
+  cursor: pointer;
+  padding: 0px 20px 0px 0px;
+  position: relative;
+  width: 25px;
+  z-index: 56;
+  outline: none;
+  display: none;
+}
+
 /* end: header css */
 
 /* start: banner css */
 .banner {
   background-image: url("/assets/images/banner.png");
   background-position: center;
+  background-repeat: no-repeat;
 }
 .banner__content {
   justify-content: flex-end;
@@ -267,7 +298,7 @@ button {
   justify-content: space-around;
 }
 .recipes__filterlistwidth {
-  width: 280px;
+  width: 250px;
 }
 /* end: recipes css */
 
@@ -395,6 +426,8 @@ button {
   color: #fff;
   border: 1px solid #fff;
   outline: none;
+  width: 135px;
+  margin-top: 30px;
 }
 .newsletter__sendcontent {
   text-align: center;
@@ -418,6 +451,17 @@ button {
 .newsletter__loading {
   text-align: center;
   padding: 30px;
+}
+.newsletter__error {
+  height: 20px;
+  margin: 1px 0px 0px 0px;
+  color: #151313;
+}
+.newsletter__addcontent {
+  margin-bottom: 20px;
+}
+.newsletter__removecontent {
+  margin-bottom: 10px;
 }
 /* end: newsleeter css */
 
@@ -451,3 +495,151 @@ button {
   font-weight: 700;
 }
 /* end: footer css */
+
+/* media queries for all section */
+@media (max-width: 1199.98px) {
+  .p--x80 {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .p--x70 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .newsletter__input,
+  .newsletter__input:focus {
+    width: 180px;
+  }
+  .gridsection__card {
+    flex-basis: calc(33.3% - 20px);
+    padding: 20px 10px 0px 10px;
+  }
+  .recipes__filterlistwidth {
+    width: 200px;
+  }
+}
+@media (max-width: 991.98px) {
+  .newsletter__content {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .newsletter__content {
+    border-bottom: 1px solid #fff;
+  }
+  .newsletter__input,
+  .newsletter__input:focus {
+    width: 300px;
+  }
+  .newsletter__label {
+    margin-top: 10px;
+  }
+  .newsletter__removecontent {
+    margin-top: 38.5px;
+  }
+  #newsletter__form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  /* .newsletter--bdrbtm {
+    border: none;
+  } */
+  .gridsection__card {
+    flex-basis: calc(50% - 20px);
+    padding: 20px 10px 0px 10px;
+  }
+  .header__link {
+    font-size: 15px;
+    padding: 15px 8px;
+  }
+  .header__logotext {
+    font-size: 16px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .recipes__foodtype {
+    min-width: 280px;
+  }
+}
+@media (max-width: 767.98px) {
+  .header__nav {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+  .banner {
+    margin-bottom: 230px;
+  }
+  .banner__rightcontent {
+    margin: 0px auto;
+    top: 200px;
+    position: relative;
+  }
+  .recipes__sort {
+    justify-content: flex-start;
+  }
+  .recipes__container,
+  .recipes__filterandsort {
+    flex-direction: column-reverse;
+  }
+  .recipes__search {
+    justify-content: flex-end;
+    padding-bottom: 20px;
+  }
+  .recipes__sorttext {
+    padding-left: 0px;
+  }
+  .recipes__foodtype {
+    min-width: 280px;
+  }
+}
+@media (max-width: 575.98px) {
+  .gridsection__card {
+    flex-basis: calc(100% - 20px);
+    padding: 20px 10px 0px 10px;
+  }
+  .header__logotext {
+    padding-left: 63px;
+  }
+  .header__logoimg {
+    width: 60px;
+  }
+  .banner {
+    margin-bottom: 350px;
+  }
+  .banner__rightcontent {
+    top: 320px;
+  }
+  .recipes__search {
+    justify-content: flex-start;
+  }
+  .recipes__foodtype,
+  .recipes__foodtypeitem {
+    flex: 1;
+  }
+  .recipes__filterinner {
+    flex-wrap: wrap;
+  }
+  .recipes__foodtype {
+    border-right: none;
+    border-bottom: 1px solid;
+    min-width: 100%;
+  }
+  .recipes__filter {
+    width: calc(100% - 30px);
+  }
+  .recipes__filtercontainer {
+    border-top-right-radius: 0px;
+  }
+  .recipes__foodtypeitem {
+    margin-top: 20px;
+  }
+  .newsletter__input {
+    margin: 0px;
+  }
+  .footer__item:last-child {
+    padding: 20px;
+  }
+}

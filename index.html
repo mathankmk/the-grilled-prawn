@@ -15,7 +15,7 @@
     <!-- start: Header section-->
     <header class="header">
       <nav>
-        <div class="header__navbar d--flex p--y80 justify--contentbetween">
+        <div class="header__navbar d--flex p--x80 justify--contentbetween">
           <div class="header__logo d--flex">
             <img
               class="header__logoimg"
@@ -26,6 +26,9 @@
               ><span>The Grilled Prawn</span></a
             >
           </div>
+          <button class="hamburger">
+            <span></span>
+          </button>
           <ul class="header__nav d--flex">
             <li class="header__item">
               <a href="/" class="header__link active">Recipes</a>
@@ -71,12 +74,13 @@
       </section>
       <!-- end: banner section-->
       <!-- start: recipes section -->
-      <section class="recipes p--y80">
+     
+      <section class="recipes p--x80">
         <div>
           <h2 class="recipes__head">Our Recipes</h2>
           <div>
-            <div class="d--flex justify--contentbetween">
-              <div class="d--flex justify--contentbetween">
+            <div class="d--flex justify--contentbetween recipes__container">
+              <div class="d--flex justify--contentbetween recipes__filterandsort">
                 <div class="d--flex justify--contentbetween recipes__filter">
                   <p class="m--0">Filter recipes by</p>
                   <p class="m--0">
@@ -101,7 +105,7 @@
                   </div>
                 </div>
               </div>
-              <div class="d--flex align--itemcenter cursor--ptr">
+              <div class="d--flex align--itemcenter cursor--ptr recipes__search">
                 <img
                   class="recipes__searchimg"
                   src="assets/images/search.png"
@@ -109,9 +113,9 @@
                 />
                 <span>Search recipe</span>
               </div>
-            </div>
+            </div> 
             <div class="recipes__filtercontainer">
-              <div class="d--flex">
+              <div class="d--flex recipes__filterinner">
                 <div class="recipes__foodtype">
                   <p class="recipes__filterlist--head m--0">Food type:</p>
                   <ul class="recipes__filterlist">
@@ -141,101 +145,102 @@
                     </li>
                   </ul>
                 </div>
-                <div class="recipes__filterlistwidth">
-                  <p class="recipes__filterlist--head m--0">Nationality:</p>
-                  <ul class="recipes__filterlist">
-                    <li class="recipes__filterlist--item">
-                      <label class="selectbox"
-                        >Italian (34) <input type="checkbox" />
-                        <span class="selectbox--custominput"></span>
-                      </label>
-                    </li>
-                    <li class="recipes__filterlist--item">
-                      <label class="selectbox"
-                        >French (30) <input type="checkbox" checked />
-                        <span class="selectbox--custominput"></span>
-                      </label>
-                    </li>
-                    <li class="recipes__filterlist--item">
-                      <label class="selectbox"
-                        >Spanish (22) <input type="checkbox" checked />
-                        <span class="selectbox--custominput"></span>
-                      </label>
-                    </li>
-                    <li class="recipes__filterlist--item">
-                      <label class="selectbox"
-                        >Peruvian (3) <input type="checkbox" />
-                        <span class="selectbox--custominput"></span>
-                      </label>
-                    </li>
-                  </ul>
-                </div>
-                <div class="recipes__filterlistwidth">
-                  <p class="recipes__filterlist--head m--0"></p>
-                  <ul class="recipes__filterlist">
-                    <li class="recipes__filterlist--item">
-                      <label class="selectbox"
-                        >Chinese (18) <input type="checkbox" />
-                        <span class="selectbox--custominput"></span>
-                      </label>
-                    </li>
-                    <li class="recipes__filterlist--item">
-                      <label class="selectbox"
-                        >Indian (13) <input type="checkbox" />
-                        <span class="selectbox--custominput"></span>
-                      </label>
-                    </li>
-                    <li class="recipes__filterlist--item">
-                      <label class="selectbox"
-                        >Thai (10) <input type="checkbox" checked />
-                        <span class="selectbox--custominput"></span>
-                      </label>
-                    </li>
-                    <li class="recipes__filterlist--item">
-                      <label class="selectbox"
-                        >Norwegian (4)<input type="checkbox" />
-                        <span class="selectbox--custominput"></span>
-                      </label>
-                    </li>
-                  </ul>
-                </div>
-                <div class="recipes__filterlistwidth">
-                  <p class="recipes__filterlist--head m--0"></p>
-                  <ul class="recipes__filterlist">
-                    <li class="recipes__filterlist--item">
-                      <label class="selectbox">
-                        Polish (2) <input type="checkbox" />
-                        <span class="selectbox--custominput"></span>
-                      </label>
-                    </li>
-                    <li class="recipes__filterlist--item">
-                      <label class="selectbox"
-                        >Danish (3) <input type="checkbox" checked />
-                        <span class="selectbox--custominput"></span>
-                      </label>
-                    </li>
-                    <li class="recipes__filterlist--item">
-                      <label class="selectbox"
-                        >Belgian (7) <input type="checkbox" />
-                        <span class="selectbox--custominput"></span>
-                      </label>
-                    </li>
-                    <li class="recipes__filterlist--item">
-                      <label class="selectbox"
-                        >Persian (13) <input type="checkbox" />
-                        <span class="selectbox--custominput"></span>
-                      </label>
-                    </li>
-                  </ul>
-                </div>
+                <div class="flex--wrap d--flex recipes__foodtypeitem">
+                    <div class="recipes__filterlistwidth">
+                        <p class="recipes__filterlist--head m--0">Nationality:</p>
+                        <ul class="recipes__filterlist">
+                          <li class="recipes__filterlist--item">
+                            <label class="selectbox"
+                              >Italian (34) <input type="checkbox" />
+                              <span class="selectbox--custominput"></span>
+                            </label>
+                          </li>
+                          <li class="recipes__filterlist--item">
+                            <label class="selectbox"
+                              >French (30) <input type="checkbox" checked />
+                              <span class="selectbox--custominput"></span>
+                            </label>
+                          </li>
+                          <li class="recipes__filterlist--item">
+                            <label class="selectbox"
+                              >Spanish (22) <input type="checkbox" checked />
+                              <span class="selectbox--custominput"></span>
+                            </label>
+                          </li>
+                          <li class="recipes__filterlist--item">
+                            <label class="selectbox"
+                              >Peruvian (3) <input type="checkbox" />
+                              <span class="selectbox--custominput"></span>
+                            </label>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="recipes__filterlistwidth">
+                        <p class="recipes__filterlist--head m--0"></p>
+                        <ul class="recipes__filterlist">
+                          <li class="recipes__filterlist--item">
+                            <label class="selectbox"
+                              >Chinese (18) <input type="checkbox" />
+                              <span class="selectbox--custominput"></span>
+                            </label>
+                          </li>
+                          <li class="recipes__filterlist--item">
+                            <label class="selectbox"
+                              >Indian (13) <input type="checkbox" />
+                              <span class="selectbox--custominput"></span>
+                            </label>
+                          </li>
+                          <li class="recipes__filterlist--item">
+                            <label class="selectbox"
+                              >Thai (10) <input type="checkbox" checked />
+                              <span class="selectbox--custominput"></span>
+                            </label>
+                          </li>
+                          <li class="recipes__filterlist--item">
+                            <label class="selectbox"
+                              >Norwegian (4)<input type="checkbox" />
+                              <span class="selectbox--custominput"></span>
+                            </label>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="recipes__filterlistwidth">
+                        <p class="recipes__filterlist--head m--0"></p>
+                        <ul class="recipes__filterlist">
+                          <li class="recipes__filterlist--item">
+                            <label class="selectbox">
+                              Polish (2) <input type="checkbox" />
+                              <span class="selectbox--custominput"></span>
+                            </label>
+                          </li>
+                          <li class="recipes__filterlist--item">
+                            <label class="selectbox"
+                              >Danish (3) <input type="checkbox" checked />
+                              <span class="selectbox--custominput"></span>
+                            </label>
+                          </li>
+                          <li class="recipes__filterlist--item">
+                            <label class="selectbox"
+                              >Belgian (7) <input type="checkbox" />
+                              <span class="selectbox--custominput"></span>
+                            </label>
+                          </li>
+                          <li class="recipes__filterlist--item">
+                            <label class="selectbox"
+                              >Persian (13) <input type="checkbox" />
+                              <span class="selectbox--custominput"></span>
+                            </label>
+                          </li>
+                        </ul>
+                      </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </section> 
       <!-- end: recipes section -->
       <!-- start: grid section -->
-      <section class="gridsection p--y70">
+      <section class="gridsection p--x70">
         <div class="gridsection__content">
           <div class="gridsection__card">
             <div class="gridsection__card--item">
@@ -483,7 +488,7 @@
       </section>
       <!-- end: grid section -->
       <!-- start:retrun to top -->
-      <div class="returntotop p--y80" onClick="returnToTop()">
+      <div class="returntotop p--x80" onClick="returnToTop()">
         <p class="m--0 returntotop__text cursor--ptr">Return to the top</p>
         <img
           alt="The Grilled Prawn"
@@ -494,7 +499,7 @@
       <!-- end:back to top -->
       <!-- start: newsletter section -->
       <section class="newsletter">
-        <div class="p--y80">
+        <div class="p--x80">
           <h2 class="newsletter__head m--0">Spread the word!</h2>
           <p class="newsletter__description m--0">
             Our recipes are awesome, sign up to our newsletter and invite
