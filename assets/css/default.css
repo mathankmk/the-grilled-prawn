@@ -168,7 +168,7 @@ button {
 
 /* start: banner css */
 .banner {
-  background-image: url("/assets/images/banner.png");
+  background-image: url("../../assets/images/banner.png");
   background-position: center;
   background-repeat: no-repeat;
 }

@@ -4,6 +4,12 @@
 
 ### How to run the project?
 
+1.Directly open the index.html file
+
+OR
+
+#### Run in localhost:
+
 1. Install the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) in Visual studio code editor.
 
 2. Open Project Directory in Visual studio code editor.
