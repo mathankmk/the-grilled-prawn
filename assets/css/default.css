@@ -635,8 +635,10 @@ button {
   .recipes__foodtypeitem {
     margin-top: 20px;
   }
-  .newsletter__input {
+  .newsletter__input,
+  .newsletter__input:focus {
     margin: 0px;
+    width: 250px;
   }
   .footer__item:last-child {
     padding: 20px;
