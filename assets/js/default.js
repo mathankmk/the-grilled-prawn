@@ -6,21 +6,42 @@ const returnToTop = () => {
   });
 };
 
+//Filter expand and collapse
+const filterToggle = element => {
+  let filterSection = document.querySelector(".recipes__filtercontainer");
+  if (element.className.indexOf("recipes__filterhide") === -1) {
+    element.classList.add("recipes__filterhide");
+    filterSection.classList.add("recipes__sectionhide");
+  } else {
+    element.classList.remove("recipes__filterhide");
+    filterSection.classList.remove("recipes__sectionhide");
+  }
+};
+// hamburger menu toggle
+const hamburgerMenuToggle = () => {
+  let hamburgerElement = document.querySelector(".header__hamburgermenu");
+  if (hamburgerElement.className.indexOf("header__hamburgershow") === -1) {
+    hamburgerElement.classList.add("header__hamburgershow");
+  } else {
+    hamburgerElement.classList.remove("header__hamburgershow");
+  }
+};
+
 // Raw html data to append the dynamic form field in newsletter
 const formHtml = random => ` <div class="d--flex newsletter__content">
 <div class="newsletter__item ">
     <label class="newsletter__label" for="name__${random}">Name</label>
-    <input class="newsletter__input newsletter__name" id="name__${random}" type="text" maxlength="50"/>
+    <input class="newsletter__input newsletter__name" id="name__${random}" Placeholder="Enter name" type="text" maxlength="50"/>
     <p class="name__${random} newsletter__error"></p>
 </div>
 <div class="newsletter__item">
     <label class="newsletter__label" for="surname__${random}">Surname</label>
-    <input class="newsletter__input newsletter__surname" type="text" id="surname__${random}" maxlength="50"/>
+    <input class="newsletter__input newsletter__surname" type="text" id="surname__${random}" maxlength="50" Placeholder="Enter surname"/>
     <p class="surname__${random} newsletter__error"></p>
 </div>
 <div class="newsletter__item">
     <label class="newsletter__label" for="email__${random}">Email address</label>
-    <input class="newsletter__input newsletter__email" type="text" id="email__${random}"  maxlength="50"/>
+    <input class="newsletter__input newsletter__email" type="text" Placeholder="Enter email address" id="email__${random}"  maxlength="50"/>
     <p class="email__${random} newsletter__error"></p>
 </div>
 <div class="newsletter__item d--flex newsletter__removecontent hide">
@@ -28,7 +49,7 @@ const formHtml = random => ` <div class="d--flex newsletter__content">
     <span class="cursor--ptr newsletter__removetext" >Remove</span></div>
 </div>
 <div class="newsletter__item d--flex  newsletter__addcontent">
-    <button type="button" class="newsletter__addfrd" onClick="addFriend()"> Add Friend</button>
+    <button type="button" class="newsletter__addfrd cursor--ptr" onClick="addFriend()"> Add Friend</button>
 </div>
 </div>`;
 

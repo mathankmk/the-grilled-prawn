@@ -1,5 +1,5 @@
 /* start: default css */
-body {
+.body {
   margin: 0px auto;
   font-family: Roboto;
   max-width: 1440px;
@@ -13,6 +13,10 @@ body {
 .p--x70 {
   padding-left: 70px;
   padding-right: 70px;
+}
+.p--x60 {
+  padding-left: 60px;
+  padding-right: 60px;
 }
 .d--flex {
   display: flex;
@@ -32,8 +36,7 @@ body {
 .position--relative {
   position: relative;
 }
-.cursor--ptr,
-button {
+.cursor--ptr {
   cursor: pointer;
 }
 .selectbox {
@@ -47,7 +50,7 @@ button {
   user-select: none;
 }
 
-.selectbox input {
+.selectbox--input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -71,7 +74,7 @@ button {
   display: none;
 }
 
-.selectbox input:checked ~ .selectbox--custominput:after {
+.selectbox--input:checked ~ .selectbox--custominput:after {
   display: block;
 }
 
@@ -129,29 +132,55 @@ button {
   padding: 25px 22px;
   transition: all 200ms ease-in-out;
 }
-.header__link:hover,
-.header__link.active {
+.header--active {
   font-weight: 700;
 }
-.hamburger span:before,
-.hamburger span:after {
+.header__hamburgersect {
+  height: 30px;
+  width: 25px;
+  padding: 0px 3px;
+  cursor: pointer;
+  display: none;
+}
+.header__hamburgermenu {
+  position: absolute;
+  right: 0px;
+  top: 69px;
+  background: #f6f6f6;
+  z-index: 30;
+  transition: all 500ms ease-out;
+  height: 0px;
+}
+.header__hamburgershow .header__hamburgernav {
+  opacity: 1;
+}
+
+.header__hamburgershow {
+  height: 194px;
+}
+.header__hamburgernav {
+  display: block !important;
+  transition: all 600ms ease-in;
+  opacity: 0;
+}
+.header__hamburger span:before,
+.header__hamburger span:after {
   background-color: #e9474b;
   content: "";
   height: 2px;
   position: absolute;
   width: 109%;
 }
-.hamburger span:before {
+.header__hamburger span:before {
   top: -8px;
   left: -1px;
 }
-.hamburger span:after {
+.header__hamburger span:after {
   top: 6px;
   left: -1px;
 }
-.hamburger,
-.hamburger:focus {
-  display: block;
+.header__hamburger,
+.header__hamburger:focus {
   background-color: transparent;
   border: 1px solid #e9474b;
   box-shadow: none;
@@ -160,6 +189,7 @@ button {
   position: relative;
   width: 25px;
   z-index: 56;
+  top: 14px;
   outline: none;
   display: none;
 }
@@ -172,6 +202,9 @@ button {
   background-position: center;
   background-repeat: no-repeat;
 }
+.banner--img {
+  display: none;
+}
 .banner__content {
   justify-content: flex-end;
 }
@@ -181,21 +214,21 @@ button {
   padding: 25px 25px 50px;
   color: white;
 }
-.banner__rightcontent--latestrecipe {
+.banner--latestrecipe {
   font-size: 18px;
   font-weight: 400;
 }
-.banner__rightcontent--baked {
+.banner--baked {
   font-size: 36px;
   font-weight: 700;
   margin: 0px;
 }
-.banner__rightcontent--description {
+.banner--description {
   font-size: 18px;
   line-height: 26px;
   margin-bottom: 35px;
 }
-.banner__rightcontent--btn {
+.banner--btn {
   border-radius: 4px;
   border: none;
   padding: 10px 15px;
@@ -205,7 +238,7 @@ button {
   font-size: 16px;
   font-weight: 700;
 }
-.banner__rightcontent--btnimg {
+.banner--btnimg {
   width: 10px;
   padding-left: 1px;
   top: -1px;
@@ -214,6 +247,12 @@ button {
 /* end: banner css */
 
 /* start: recipes css */
+.recipes__mobile {
+  display: none;
+}
+.recipes__desktop {
+  display: inherit;
+}
 .recipes__head {
   color: #4a4a4a;
   font-size: 36px;
@@ -221,19 +260,32 @@ button {
   margin: 25px 0px;
 }
 .recipes__filter {
-  width: 250px;
+  width: 230px;
   background-color: rgba(233, 71, 75, 0.9);
   padding: 10px 15px;
   color: #fff;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   cursor: pointer;
+  align-items: center;
+  transition: all 1000ms ease-out;
 }
 .recipes__dashimg {
   width: 12px;
-  padding-top: 10px;
   cursor: pointer;
+  position: relative;
+  top: -3px;
 }
+.recipes__dashimgvertical {
+  width: 12px;
+  transform: rotate(90deg);
+  position: absolute;
+  top: 9.5px;
+  left: 0px;
+  opacity: 0;
+  transition: all 100ms ease-in-out;
+}
+
 .recipes__sort {
   align-items: center;
   padding-bottom: 10px;
@@ -266,6 +318,9 @@ button {
 .recipes__searchimg {
   width: 16px;
   padding-right: 8px;
+  position: absolute;
+  left: 6px;
+  top: 11px;
 }
 .recipes__filtercontainer {
   background-color: rgba(233, 71, 75, 0.9);
@@ -274,6 +329,25 @@ button {
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
   padding: 20px 0px;
+  transition: all 500ms ease-in-out;
+}
+.recipes__filtercontainer.recipes__sectionhide {
+  padding: 0px;
+}
+.recipes__filter.recipes__filterhide {
+  border-radius: 4px;
+}
+.recipes__filterinner {
+  height: 164px;
+  transition: all 500ms ease-in-out;
+}
+.recipes__filterhide .recipes__dashimgvertical {
+  opacity: 1;
+}
+
+.recipes__sectionhide .recipes__filterinner {
+  height: 0px;
+  opacity: 0;
 }
 .recipes__filterlist {
   list-style: none;
@@ -282,15 +356,15 @@ button {
 }
 .recipes__foodtype {
   border-right: 1px solid #fff;
-  width: 280px;
+  min-width: 257px;
   padding-bottom: 10px;
 }
-.recipes__filterlist--head {
+.recipes--head {
   padding: 0px 15px 10px;
   font-weight: 700;
   min-height: 20px;
 }
-.recipes__filterlist--item {
+.recipes--item {
   padding: 6px 0px;
 }
 .recipes__filterdetails {
@@ -298,7 +372,38 @@ button {
   justify-content: space-around;
 }
 .recipes__filterlistwidth {
-  width: 250px;
+  flex: 1;
+}
+.recipes__searchinput,
+.recipes__searchinput:focus {
+  padding: 10px 0px 10px 30px;
+  margin-bottom: 12px;
+  border: 1px solid transparent;
+  background: #f6f6f6;
+  width: 100px;
+  outline: none;
+  border-radius: 4px;
+}
+.recipes__searchinput:focus {
+  border: 1px solid #ea585b;
+}
+.recipes__searchinput::placeholder {
+  color: #4a4a4a;
+  opacity: 1;
+  font-weight: 700;
+}
+
+.recipes__searchinput:-ms-input-placeholder,
+.recipes__searchinput::-ms-input-placeholder {
+  color: #4a4a4a;
+  font-weight: 700;
+}
+
+.recipes__search {
+  position: relative;
+}
+.recipes__foodtypeitem {
+  width: 100%;
 }
 /* end: recipes css */
 
@@ -312,10 +417,10 @@ button {
   margin-bottom: 20px;
 }
 .gridsection__card {
-  flex-basis: calc(25% - 20px);
-  padding: 20px 10px 0px 10px;
+  flex-basis: calc(25% - 30px);
+  padding: 30px 15px 0px 15px;
 }
-.gridsection__card--item {
+.gridsection--item {
   margin: auto;
   display: flex;
   background: #fff;
@@ -323,23 +428,25 @@ button {
   height: 100%;
   justify-content: space-between;
 }
-.gridsection__card--iteminner {
+.gridsection--iteminner {
   padding: 15px;
 }
-.gridsection__card--itemimg {
+.gridsection--itemimg {
   width: 100%;
   height: 280px;
+  vertical-align: bottom;
 }
-.gridsection__card--description {
+.gridsection--description {
   color: #4a4a4a;
   font-size: 23px;
   font-weight: 300;
   padding: 10px 0px;
 }
-.gridsection__card--date {
+.gridsection--date {
   font-size: 12px;
   font-weight: 500;
   text-transform: uppercase;
+  color: #4a4a4a;
 }
 /* end: grid css */
 
@@ -412,6 +519,7 @@ button {
 }
 .newsletter__removetext {
   padding-bottom: 20px;
+  font-weight: 700;
 }
 .newsletter__removecontent,
 .newsletter__addcontent {
@@ -419,14 +527,16 @@ button {
 }
 .newsletter__addfrd,
 .newsletter__addfrd:focus {
-  padding: 10px 30px;
   border-radius: 4px;
   background: #e9474b;
   color: #fff;
   border: 1px solid #fff;
   outline: none;
-  width: 135px;
   margin-top: 30px;
+  padding: 15px 44px;
+  font-weight: 700;
+  width: 178px;
+  font-size: 16px;
 }
 .newsletter__sendcontent {
   text-align: center;
@@ -436,10 +546,12 @@ button {
 .newsletter__sendbtn:focus {
   border: none;
   border-radius: 4px;
-  padding: 10px 20px;
+  padding: 15px 45px;
   background: #fff;
   color: #4a4a4a;
   outline: none;
+  font-weight: 700;
+  font-size: 16px;
 }
 .newsletter__sendimg {
   position: relative;
@@ -470,11 +582,11 @@ button {
 }
 .footer__head {
   color: #4a4a4a;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   margin-bottom: 10px;
 }
-.footer p {
+.footer--para {
   color: #4a4a4a;
   font-size: 14px;
   font-weight: 300;
@@ -492,6 +604,10 @@ button {
 .footer__link {
   color: #e9474b;
   font-weight: 700;
+  text-decoration: none;
+}
+.footer__copyright {
+  font-size: 18px !important;
 }
 /* end: footer css */
 
@@ -501,17 +617,17 @@ button {
     padding-left: 30px;
     padding-right: 30px;
   }
-  .p--x70 {
-    padding-left: 20px;
-    padding-right: 20px;
+  .p--x60 {
+    padding-left: 10px;
+    padding-right: 10px;
   }
   .newsletter__input,
   .newsletter__input:focus {
     width: 180px;
   }
   .gridsection__card {
-    flex-basis: calc(33.3% - 20px);
-    padding: 20px 10px 0px 10px;
+    flex-basis: calc(33.3% - 30px);
+    padding: 30px 15px 0px 15px;
   }
   .recipes__filterlistwidth {
     width: 200px;
@@ -536,17 +652,30 @@ button {
   .newsletter__removecontent {
     margin-top: 38.5px;
   }
-  #newsletter__form {
+  .newsletter__addfrd,
+  .newsletter__addfrd:focus {
+    margin-top: 17px;
+  }
+  .newsletter__content {
+    display: block !important;
+  }
+  .newsletter__input {
+    width: calc(100% - 24px);
+  }
+  .newsletter__addfrd {
+    width: 100%;
+  }
+  /* .newsletter__form {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-  }
+  } */
   /* .newsletter--bdrbtm {
     border: none;
   } */
   .gridsection__card {
-    flex-basis: calc(50% - 20px);
-    padding: 20px 10px 0px 10px;
+    flex-basis: calc(50% - 30px);
+    padding: 30px 15px 0px 15px;
   }
   .header__link {
     font-size: 15px;
@@ -557,47 +686,105 @@ button {
     padding-top: 15px;
     padding-bottom: 15px;
   }
-  .recipes__foodtype {
-    min-width: 280px;
+
+  .footer .d--flex {
+    display: block;
+  }
+  .footer__item {
+    margin: 0px 20px 20px 20px;
+    padding: 5px 0px 5px 0px;
+    border-bottom: 1px solid #ddd;
+  }
+  .copy__item {
+    padding: 5px 0px 5px 0px !important;
+    border-bottom: none !important;
+  }
+  .footer--copyhead {
+    font-size: 20px !important;
   }
 }
 @media (max-width: 767.98px) {
-  .header__nav {
+  .banner {
+    background: none;
+  }
+  .banner__content {
+    flex-direction: column;
+  }
+  .banner--img {
+    display: block;
+    width: 100%;
+  }
+  .header__nav,
+  .recipes__desktop {
     display: none;
   }
-  .hamburger {
-    display: block;
+  .recipes__mobile {
+    display: flex;
   }
-  .banner {
-    margin-bottom: 230px;
+  .header__hamburgersect,
+  .header__hamburger {
+    display: block;
   }
   .banner__rightcontent {
     margin: 0px auto;
-    top: 200px;
     position: relative;
+    max-width: 100%;
   }
   .recipes__sort {
-    justify-content: flex-start;
+    justify-content: space-between;
+    padding-top: 24px;
+  }
+  .recipes__select {
+    width: 250px;
   }
   .recipes__container,
   .recipes__filterandsort {
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
   .recipes__search {
-    justify-content: flex-end;
-    padding-bottom: 20px;
+    /* justify-content: flex-end; */
+    padding-bottom: 0px;
+    position: relative;
+    margin-top: 10px;
   }
   .recipes__sorttext {
     padding-left: 0px;
   }
+  .recipes__foodtypeitem,
+  .recipes__filterinner {
+    display: block;
+  }
+  .recipes--headempty {
+    display: none;
+  }
+  .recipes__filter {
+    width: inherit;
+  }
   .recipes__foodtype {
-    min-width: 280px;
+    border-right: none;
+    border-bottom: 1px solid;
+    margin-bottom: 10px;
+  }
+  .recipes__filtercontainer {
+    border-top-right-radius: 0px;
+  }
+  .recipes__filtercontainer {
+    padding: 10px;
+  }
+  .recipes__filtertext {
+    padding-left: 10px;
+  }
+  .recipes__filterinner {
+    height: 577px;
   }
 }
 @media (max-width: 575.98px) {
   .gridsection__card {
-    flex-basis: calc(100% - 20px);
-    padding: 20px 10px 0px 10px;
+    flex-basis: calc(100% - 30px);
+    padding: 30px 15px 0px 15px;
+  }
+  .banner--baked {
+    font-size: 23px;
   }
   .header__logotext {
     padding-left: 63px;
@@ -605,11 +792,8 @@ button {
   .header__logoimg {
     width: 60px;
   }
-  .banner {
-    margin-bottom: 350px;
-  }
   .banner__rightcontent {
-    top: 320px;
+    max-width: 100%;
   }
   .recipes__search {
     justify-content: flex-start;
@@ -618,6 +802,7 @@ button {
   .recipes__foodtypeitem {
     flex: 1;
   }
+
   .recipes__filterinner {
     flex-wrap: wrap;
   }
@@ -638,9 +823,12 @@ button {
   .newsletter__input,
   .newsletter__input:focus {
     margin: 0px;
-    width: 250px;
+    /* width: 250px; */
   }
   .footer__item:last-child {
     padding: 20px;
+  }
+  .recipes__select {
+    width: 198px;
   }
 }

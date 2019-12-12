@@ -11,7 +11,7 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body class="body">
     <!-- start: Header section-->
     <header class="header">
       <nav>
@@ -22,25 +22,43 @@
               src="assets/images/logo.png"
               alt="The Grilled Prawn - logo"
             />
-            <a href="/" class="header__logotext"
+            <a href="javascript:void(0);" class="header__logotext"
               ><span>The Grilled Prawn</span></a
             >
           </div>
-          <button class="hamburger">
-            <span></span>
-          </button>
+          <div class="header__hamburgersect" onclick="hamburgerMenuToggle()">
+              <button class="header__hamburger cursor--ptr">
+                  <span></span>
+                </button>
+          </div>
+          <div class="header__hamburgermenu">
+              <ul class="header__nav header__hamburgernav">
+                  <li class="header__item">
+                    <a href="javascript:void(0);" class="header__link header--active">Recipes</a>
+                  </li>
+                  <li class="header__item">
+                    <a href="javascript:void(0);" class="header__link">Drinks</a>
+                  </li>
+                  <li class="header__item">
+                    <a href="javascript:void(0);" class="header__link">Decorations</a>
+                  </li>
+                  <li class="header__item">
+                    <a href="javascript:void(0);" class="header__link">About the grilled prawn</a>
+                  </li>
+                </ul>
+          </div>
           <ul class="header__nav d--flex">
             <li class="header__item">
-              <a href="/" class="header__link active">Recipes</a>
+              <a href="javascript:void(0);" class="header__link header--active">Recipes</a>
             </li>
             <li class="header__item">
-              <a href="/" class="header__link">Drinks</a>
+              <a href="javascript:void(0);" class="header__link">Drinks</a>
             </li>
             <li class="header__item">
-              <a href="/" class="header__link">Decorations</a>
+              <a href="javascript:void(0);" class="header__link">Decorations</a>
             </li>
             <li class="header__item">
-              <a href="/" class="header__link">About the grilled prawn</a>
+              <a href="javascript:void(0);" class="header__link">About the grilled prawn</a>
             </li>
           </ul>
         </div>
@@ -51,20 +69,21 @@
       <!-- start: banner section-->
       <section class="banner">
         <div class="banner__content d--flex">
+          <img src="assets/images/banner.png" class="banner--img" alt="The Grilled Prawn - banner image"/>
           <div class="banner__rightcontent">
-            <p class="banner__rightcontent--latestrecipe">LATEST RECIPE</p>
-            <h5 class="banner__rightcontent--baked">
+            <p class="banner--latestrecipe">LATEST RECIPE</p>
+            <h5 class="banner--baked">
               Baked Polenta with Cheese and Mushrooms.
             </h5>
-            <p class="banner__rightcontent--description">
+            <p class="banner--description">
               Polenta, goat cheese, Italian sausage, and cremini mushroom. All
               together this will make for pretty darn good side dish to a lovely
               salad. Go for it.
             </p>
-            <button type="button" class="banner__rightcontent--btn">
+            <button type="button" class="banner--btn cursor--ptr">
               Go to recipes
               <img
-                class="banner__rightcontent--btnimg"
+                class="banner--btnimg"
                 src="assets/images/arrow_right.png"
                 alt="The Grilled Prawn - arrow right"
               />
@@ -83,17 +102,22 @@
               <div
                 class="d--flex justify--contentbetween recipes__filterandsort"
               >
-                <div class="d--flex justify--contentbetween recipes__filter">
-                  <p class="m--0">Filter recipes by</p>
-                  <p class="m--0">
+                <div class="d--flex justify--contentbetween recipes__filter" onClick="filterToggle(this)">
+                  <p class="m--0 recipes__filtertext">Filter recipes by</p>
+                  <p class="m--0 position--relative">
                     <img
                       class="recipes__dashimg"
                       src="assets/images/dash.png"
-                      alt="The Grilled Prawn - arrow down"
+                      alt="The Grilled Prawn - arrow horizondal"
+                    />
+                    <img
+                      class="recipes__dashimgvertical"
+                      src="assets/images/dash.png"
+                      alt="The Grilled Prawn - arrow vertical"
                     />
                   </p>
                 </div>
-                <div class="d--flex justify--contentbetween recipes__sort">
+                <div class="d--flex justify--contentbetween recipes__sort recipes__desktop">
                   <p class="m--0 recipes__sorttext"><label for="sortby">Sort by</label></p>
                   <div class="position--relative">
                     <select class="recipes__select" id="sortby">
@@ -108,42 +132,42 @@
                 </div>
               </div>
               <div
-                class="d--flex align--itemcenter cursor--ptr recipes__search"
+                class="d--flex align--itemcenter cursor--ptr recipes__search recipes__desktop"
               >
                 <img
                   class="recipes__searchimg"
                   src="assets/images/search.png"
                   alt="The Grilled Prawn - search"
                 />
-                <span>Search recipe</span>
+                <input type="text" placeholder="Search Recipe" class="recipes__searchinput"/>
               </div>
             </div>
             <div class="recipes__filtercontainer">
               <div class="d--flex recipes__filterinner">
                 <div class="recipes__foodtype">
-                  <p class="recipes__filterlist--head m--0">Food type:</p>
+                  <p class="recipes--head m--0">Food type:</p>
                   <ul class="recipes__filterlist">
-                    <li class="recipes__filterlist--item">
+                    <li class="recipes--item">
                       <label class="selectbox"
-                        >Appetisers <input type="checkbox" />
+                        >Appetisers <input type="checkbox" class="selectbox--input"  />
                         <span class="selectbox--custominput"></span>
                       </label>
                     </li>
-                    <li class="recipes__filterlist--item">
+                    <li class="recipes--item">
                       <label class="selectbox"
-                        >Mains <input type="checkbox" checked />
+                        >Mains <input type="checkbox" class="selectbox--input"  checked />
                         <span class="selectbox--custominput"></span>
                       </label>
                     </li>
-                    <li class="recipes__filterlist--item">
+                    <li class="recipes--item">
                       <label class="selectbox"
-                        >Desserts <input type="checkbox" />
+                        >Desserts <input type="checkbox" class="selectbox--input"  />
                         <span class="selectbox--custominput"></span>
                       </label>
                     </li>
-                    <li class="recipes__filterlist--item">
+                    <li class="recipes--item">
                       <label class="selectbox"
-                        >Special Occasions <input type="checkbox" />
+                        >Special Occasions <input type="checkbox" class="selectbox--input"  />
                         <span class="selectbox--custominput"></span>
                       </label>
                     </li>
@@ -151,87 +175,87 @@
                 </div>
                 <div class="flex--wrap d--flex recipes__foodtypeitem">
                   <div class="recipes__filterlistwidth">
-                    <p class="recipes__filterlist--head m--0">Nationality:</p>
+                    <p class="recipes--head m--0">Nationality:</p>
                     <ul class="recipes__filterlist">
-                      <li class="recipes__filterlist--item">
+                      <li class="recipes--item">
                         <label class="selectbox"
-                          >Italian (34) <input type="checkbox" />
+                          >Italian (34) <input type="checkbox" class="selectbox--input"  />
                           <span class="selectbox--custominput"></span>
                         </label>
                       </li>
-                      <li class="recipes__filterlist--item">
+                      <li class="recipes--item">
                         <label class="selectbox"
-                          >French (30) <input type="checkbox" checked />
+                          >French (30) <input type="checkbox" class="selectbox--input"  checked />
                           <span class="selectbox--custominput"></span>
                         </label>
                       </li>
-                      <li class="recipes__filterlist--item">
+                      <li class="recipes--item">
                         <label class="selectbox"
-                          >Spanish (22) <input type="checkbox" checked />
+                          >Spanish (22) <input type="checkbox" class="selectbox--input"  checked />
                           <span class="selectbox--custominput"></span>
                         </label>
                       </li>
-                      <li class="recipes__filterlist--item">
+                      <li class="recipes--item">
                         <label class="selectbox"
-                          >Peruvian (3) <input type="checkbox" />
+                          >Peruvian (3) <input type="checkbox" class="selectbox--input"  />
                           <span class="selectbox--custominput"></span>
                         </label>
                       </li>
                     </ul>
                   </div>
                   <div class="recipes__filterlistwidth">
-                    <p class="recipes__filterlist--head m--0"></p>
+                    <p class="recipes--head m--0 recipes--headempty"></p>
                     <ul class="recipes__filterlist">
-                      <li class="recipes__filterlist--item">
+                      <li class="recipes--item">
                         <label class="selectbox"
-                          >Chinese (18) <input type="checkbox" />
+                          >Chinese (18) <input type="checkbox" class="selectbox--input"  />
                           <span class="selectbox--custominput"></span>
                         </label>
                       </li>
-                      <li class="recipes__filterlist--item">
+                      <li class="recipes--item">
                         <label class="selectbox"
-                          >Indian (13) <input type="checkbox" />
+                          >Indian (13) <input type="checkbox" class="selectbox--input"  />
                           <span class="selectbox--custominput"></span>
                         </label>
                       </li>
-                      <li class="recipes__filterlist--item">
+                      <li class="recipes--item">
                         <label class="selectbox"
-                          >Thai (10) <input type="checkbox" checked />
+                          >Thai (10) <input type="checkbox" class="selectbox--input"  checked />
                           <span class="selectbox--custominput"></span>
                         </label>
                       </li>
-                      <li class="recipes__filterlist--item">
+                      <li class="recipes--item">
                         <label class="selectbox"
-                          >Norwegian (4)<input type="checkbox" />
+                          >Norwegian (4)<input type="checkbox" class="selectbox--input"  />
                           <span class="selectbox--custominput"></span>
                         </label>
                       </li>
                     </ul>
                   </div>
                   <div class="recipes__filterlistwidth">
-                    <p class="recipes__filterlist--head m--0"></p>
+                    <p class="recipes--head m--0 recipes--headempty"></p>
                     <ul class="recipes__filterlist">
-                      <li class="recipes__filterlist--item">
+                      <li class="recipes--item">
                         <label class="selectbox">
-                          Polish (2) <input type="checkbox" />
+                          Polish (2) <input type="checkbox" class="selectbox--input"  />
                           <span class="selectbox--custominput"></span>
                         </label>
                       </li>
-                      <li class="recipes__filterlist--item">
+                      <li class="recipes--item">
                         <label class="selectbox"
-                          >Danish (3) <input type="checkbox" checked />
+                          >Danish (3) <input type="checkbox" class="selectbox--input"  checked />
                           <span class="selectbox--custominput"></span>
                         </label>
                       </li>
-                      <li class="recipes__filterlist--item">
+                      <li class="recipes--item">
                         <label class="selectbox"
-                          >Belgian (7) <input type="checkbox" />
+                          >Belgian (7) <input type="checkbox" class="selectbox--input"  />
                           <span class="selectbox--custominput"></span>
                         </label>
                       </li>
-                      <li class="recipes__filterlist--item">
+                      <li class="recipes--item">
                         <label class="selectbox"
-                          >Persian (13) <input type="checkbox" />
+                          >Persian (13) <input type="checkbox" class="selectbox--input"  />
                           <span class="selectbox--custominput"></span>
                         </label>
                       </li>
@@ -240,250 +264,273 @@
                 </div>
               </div>
             </div>
+             <div class="d--flex justify--contentbetween recipes__sort recipes__mobile">
+                  <p class="m--0 recipes__sorttext"><label for="sortby">Sort by</label></p>
+                  <div class="position--relative">
+                    <select class="recipes__select" id="sortby">
+                      <option>Newest first</option>
+                    </select>
+                    <img
+                      class="recipes__selectimg"
+                      src="assets/images/arrow_down.png"
+                      alt="The Grilled Prawn - arrow down"
+                    />
+                  </div>
+                </div>
+                <div
+                class="d--flex align--itemcenter cursor--ptr recipes__search recipes__mobile"
+              >
+                <img
+                  class="recipes__searchimg"
+                  src="assets/images/search.png"
+                  alt="The Grilled Prawn - search"
+                />
+                <input type="text" placeholder="Search Recipe" class="recipes__searchinput"/>
+              </div>
           </div>
         </div>
       </section>
       <!-- end: recipes section -->
       <!-- start: grid section -->
-      <div class="gridsection p--x70">
+      <div class="gridsection p--x60">
         <div class="gridsection__content">
           <div class="gridsection__card">
-            <div class="gridsection__card--item">
-              <div class="gridsection__card--iteminner">
+            <div class="gridsection--item">
+              <div class="gridsection--iteminner">
                 <div class="d--flex justify--contentbetween">
-                  <p class="m--0 gridsection__card--date">5TH MARCH 2016</p>
-                  <p class="m--0 gridsection__card--date">THAI</p>
+                  <p class="m--0 gridsection--date">5TH MARCH 2016</p>
+                  <p class="m--0 gridsection--date">THAI</p>
                 </div>
-                <p class="m--0 gridsection__card--description">
+                <p class="m--0 gridsection--description">
                   Thai Yellow Curry Noodles with Shiitake Mushrooms
                 </p>
               </div>
               <div>
                 <img
                   alt="The Grilled Prawn - card image"
-                  class="gridsection__card--itemimg"
+                  class="gridsection--itemimg"
                   src="assets/images/card_1.png"
                 />
               </div>
             </div>
           </div>
           <div class="gridsection__card">
-            <div class="gridsection__card--item">
-              <div class="gridsection__card--iteminner">
+            <div class="gridsection--item">
+              <div class="gridsection--iteminner">
                 <div class="d--flex justify--contentbetween">
-                  <p class="m--0 gridsection__card--date">17TH MARCH 2016</p>
-                  <p class="m--0 gridsection__card--date">ITALIAN</p>
+                  <p class="m--0 gridsection--date">17TH MARCH 2016</p>
+                  <p class="m--0 gridsection--date">ITALIAN</p>
                 </div>
-                <p class="m--0 gridsection__card--description">
+                <p class="m--0 gridsection--description">
                   Cappellini with Cherry Tomatoes and Fresh Basil
                 </p>
               </div>
               <div>
                 <img
                   alt="The Grilled Prawn - card image"
-                  class="gridsection__card--itemimg"
+                  class="gridsection--itemimg"
                   src="assets/images/card_2.png"
                 />
               </div>
             </div>
           </div>
           <div class="gridsection__card">
-            <div class="gridsection__card--item">
-              <div class="gridsection__card--iteminner">
+            <div class="gridsection--item">
+              <div class="gridsection--iteminner">
                 <div class="d--flex justify--contentbetween">
-                  <p class="m--0 gridsection__card--date">4TH APRIL 2016</p>
-                  <p class="m--0 gridsection__card--date">ITALIAN</p>
+                  <p class="m--0 gridsection--date">4TH APRIL 2016</p>
+                  <p class="m--0 gridsection--date">ITALIAN</p>
                 </div>
-                <p class="m--0 gridsection__card--description">
+                <p class="m--0 gridsection--description">
                   Baked Turkey Sausage and Mascarpone Stuffed Shells
                 </p>
               </div>
               <div>
                 <img
                   alt="The Grilled Prawn - card image"
-                  class="gridsection__card--itemimg"
+                  class="gridsection--itemimg"
                   src="assets/images/card_3.png"
                 />
               </div>
             </div>
           </div>
           <div class="gridsection__card">
-            <div class="gridsection__card--item">
-              <div class="gridsection__card--iteminner">
+            <div class="gridsection--item">
+              <div class="gridsection--iteminner">
                 <div class="d--flex justify--contentbetween">
-                  <p class="m--0 gridsection__card--date">24TH MAY 2016</p>
-                  <p class="m--0 gridsection__card--date">ITALIAN</p>
+                  <p class="m--0 gridsection--date">24TH MAY 2016</p>
+                  <p class="m--0 gridsection--date">ITALIAN</p>
                 </div>
-                <p class="m--0 gridsection__card--description">
+                <p class="m--0 gridsection--description">
                   Caramelised Apple and Herb Fiocchi
                 </p>
               </div>
               <div>
                 <img
                   alt="The Grilled Prawn - card image"
-                  class="gridsection__card--itemimg"
+                  class="gridsection--itemimg"
                   src="assets/images/card_4.png"
                 />
               </div>
             </div>
           </div>
           <div class="gridsection__card">
-            <div class="gridsection__card--item">
-              <div class="gridsection__card--iteminner">
+            <div class="gridsection--item">
+              <div class="gridsection--iteminner">
                 <div class="d--flex justify--contentbetween">
-                  <p class="m--0 gridsection__card--date">25TH MAY 2016</p>
-                  <p class="m--0 gridsection__card--date">SPANISH</p>
+                  <p class="m--0 gridsection--date">25TH MAY 2016</p>
+                  <p class="m--0 gridsection--date">SPANISH</p>
                 </div>
-                <p class="m--0 gridsection__card--description">
+                <p class="m--0 gridsection--description">
                   Pumpkin Beer Cheese Soup
                 </p>
               </div>
               <div>
                 <img
                   alt="The Grilled Prawn - card image"
-                  class="gridsection__card--itemimg"
+                  class="gridsection--itemimg"
                   src="assets/images/card_5.png"
                 />
               </div>
             </div>
           </div>
           <div class="gridsection__card">
-            <div class="gridsection__card--item">
-              <div class="gridsection__card--iteminner">
+            <div class="gridsection--item">
+              <div class="gridsection--iteminner">
                 <div class="d--flex justify--contentbetween">
-                  <p class="m--0 gridsection__card--date">
+                  <p class="m--0 gridsection--date">
                     22TH SEPTEMBER 2016
                   </p>
-                  <p class="m--0 gridsection__card--date">THAI</p>
+                  <p class="m--0 gridsection--date">THAI</p>
                 </div>
-                <p class="m--0 gridsection__card--description">
+                <p class="m--0 gridsection--description">
                   Yum Woon Sen with Shrimp (Glass noodle salad with Shrimp)
                 </p>
               </div>
               <div>
                 <img
                   alt="The Grilled Prawn - card image"
-                  class="gridsection__card--itemimg"
+                  class="gridsection--itemimg"
                   src="assets/images/card_6.png"
                 />
               </div>
             </div>
           </div>
           <div class="gridsection__card">
-            <div class="gridsection__card--item">
-              <div class="gridsection__card--iteminner">
+            <div class="gridsection--item">
+              <div class="gridsection--iteminner">
                 <div class="d--flex justify--contentbetween">
-                  <p class="m--0 gridsection__card--date">14TH OCTOBER 2016</p>
-                  <p class="m--0 gridsection__card--date">THAI</p>
+                  <p class="m--0 gridsection--date">14TH OCTOBER 2016</p>
+                  <p class="m--0 gridsection--date">THAI</p>
                 </div>
-                <p class="m--0 gridsection__card--description">
+                <p class="m--0 gridsection--description">
                   Beef Satay
                 </p>
               </div>
               <div>
                 <img
                   alt="The Grilled Prawn - card image"
-                  class="gridsection__card--itemimg"
+                  class="gridsection--itemimg"
                   src="assets/images/card_7.png"
                 />
               </div>
             </div>
           </div>
           <div class="gridsection__card">
-            <div class="gridsection__card--item">
-              <div class="gridsection__card--iteminner">
+            <div class="gridsection--item">
+              <div class="gridsection--iteminner">
                 <div class="d--flex justify--contentbetween">
-                  <p class="m--0 gridsection__card--date">29TH OCTOBER 2016</p>
-                  <p class="m--0 gridsection__card--date">FRENCH</p>
+                  <p class="m--0 gridsection--date">29TH OCTOBER 2016</p>
+                  <p class="m--0 gridsection--date">FRENCH</p>
                 </div>
-                <p class="m--0 gridsection__card--description">
+                <p class="m--0 gridsection--description">
                   Creamy French Onion Soup Dip in a Bread Bowl
                 </p>
               </div>
               <div>
                 <img
                   alt="The Grilled Prawn - card image"
-                  class="gridsection__card--itemimg"
+                  class="gridsection--itemimg"
                   src="assets/images/card_8.png"
                 />
               </div>
             </div>
           </div>
           <div class="gridsection__card">
-            <div class="gridsection__card--item">
-              <div class="gridsection__card--iteminner">
+            <div class="gridsection--item">
+              <div class="gridsection--iteminner">
                 <div class="d--flex justify--contentbetween">
-                  <p class="m--0 gridsection__card--date">11TH NOVEMBER 2016</p>
-                  <p class="m--0 gridsection__card--date">SPANISH</p>
+                  <p class="m--0 gridsection--date">11TH NOVEMBER 2016</p>
+                  <p class="m--0 gridsection--date">SPANISH</p>
                 </div>
-                <p class="m--0 gridsection__card--description">
+                <p class="m--0 gridsection--description">
                   Bocadillo Bites
                 </p>
               </div>
               <div>
                 <img
                   alt="The Grilled Prawn - card image"
-                  class="gridsection__card--itemimg"
+                  class="gridsection--itemimg"
                   src="assets/images/card_9.png"
                 />
               </div>
             </div>
           </div>
           <div class="gridsection__card">
-            <div class="gridsection__card--item">
-              <div class="gridsection__card--iteminner">
+            <div class="gridsection--item">
+              <div class="gridsection--iteminner">
                 <div class="d--flex justify--contentbetween">
-                  <p class="m--0 gridsection__card--date">12TH NOVEMBER 2016</p>
-                  <p class="m--0 gridsection__card--date">SPANISH</p>
+                  <p class="m--0 gridsection--date">12TH NOVEMBER 2016</p>
+                  <p class="m--0 gridsection--date">SPANISH</p>
                 </div>
-                <p class="m--0 gridsection__card--description">
+                <p class="m--0 gridsection--description">
                   Paella
                 </p>
               </div>
               <div>
                 <img
                   alt="The Grilled Prawn - card image"
-                  class="gridsection__card--itemimg"
+                  class="gridsection--itemimg"
                   src="assets/images/card_10.png"
                 />
               </div>
             </div>
           </div>
           <div class="gridsection__card">
-            <div class="gridsection__card--item">
-              <div class="gridsection__card--iteminner">
+            <div class="gridsection--item">
+              <div class="gridsection--iteminner">
                 <div class="d--flex justify--contentbetween">
-                  <p class="m--0 gridsection__card--date">24TH DECEMBER 2016</p>
-                  <p class="m--0 gridsection__card--date">THAI</p>
+                  <p class="m--0 gridsection--date">24TH DECEMBER 2016</p>
+                  <p class="m--0 gridsection--date">THAI</p>
                 </div>
-                <p class="m--0 gridsection__card--description">
+                <p class="m--0 gridsection--description">
                   Spicy black Bean Burger
                 </p>
               </div>
               <div>
                 <img
                   alt="The Grilled Prawn - card image"
-                  class="gridsection__card--itemimg"
+                  class="gridsection--itemimg"
                   src="assets/images/card_11.png"
                 />
               </div>
             </div>
           </div>
           <div class="gridsection__card">
-            <div class="gridsection__card--item">
-              <div class="gridsection__card--iteminner">
+            <div class="gridsection--item">
+              <div class="gridsection--iteminner">
                 <div class="d--flex justify--contentbetween">
-                  <p class="m--0 gridsection__card--date">9TH JANUARY 2017</p>
-                  <p class="m--0 gridsection__card--date">ITALIAN</p>
+                  <p class="m--0 gridsection--date">9TH JANUARY 2017</p>
+                  <p class="m--0 gridsection--date">ITALIAN</p>
                 </div>
-                <p class="m--0 gridsection__card--description">
+                <p class="m--0 gridsection--description">
                   Fresh Fig and Pistachio Salad
                 </p>
               </div>
               <div>
                 <img
                   alt="The Grilled Prawn - card image"
-                  class="gridsection__card--itemimg"
+                  class="gridsection--itemimg"
                   src="assets/images/card_12.png"
                 />
               </div>
@@ -511,14 +558,14 @@
             friends to join the Gilled Prawn cult
           </p>
           <form>
-            <div id="newsletter__form">
+            <div  class="newsletter__form" id="newsletter__form">
               <div class="newsletter__loading" id="newsletterloading">
                 Loading...
               </div>
             </div>
             <div class="newsletter__sendcontent">
               <button
-                class="newsletter__sendbtn"
+                class="newsletter__sendbtn cursor--ptr"
                 type="button"
                 onClick="sendFormData()"
               >
@@ -539,49 +586,49 @@
         <div class="p--y80 d--flex flex--wrap">
           <div class="footer__item">
             <h5 class="m--0 footer__head">Our Recipes</h5>
-            <p class="m--0">
+            <p class="m--0 footer--para">
               All our recipes are tested thoroughly by us to make sure they’re
               suitable for your kitchen at home. We know many of you are
               concerned about healthy eating, so we send them to a qualified
               nutritionist for thorough analysis too.
             </p>
-            <p class="m--0">
-              <a class="footer__link">Browse our recipes now</a>
+            <p class="m--0 footer--para">
+              <a href="javascript:void(0);" class="footer__link">Browse our recipes now</a>
             </p>
           </div>
           <div class="footer__item">
             <h5 class="m--0 footer__head">Grilled Praw’s History</h5>
-            <p class="m--0">
+            <p class="m--0 footer--para">
               The Grilled Prawn is a fictional food blog created in January
               2015.
             </p>
           </div>
           <div class="footer__item">
             <h5 class="m--0 footer__head">Tips and Tricks</h5>
-            <p class="m--0">
+            <p class="m--0 footer--para">
               Not sure how to do something? Don’t panic. We have plenty of
               tutorials for you.
             </p>
-            <p class="m--0"><a class="footer__link">Learn more</a></p>
+            <p class="m--0 footer--para"><a href="javascript:void(0);" class="footer__link">Learn more</a></p>
           </div>
           <div class="footer__item">
             <h5 class="m--0 footer__head">Help and Contact</h5>
-            <p class="m--0">Struggling with one of the recipes?</p>
-            <p class="m--0"><a class="footer__link">Send us an email</a></p>
-            <p>
+            <p class="m--0 footer--para">Struggling with one of the recipes?</p>
+            <p class="m--0 footer--para"><a href="javascript:void(0);" class="footer__link">Send us an email</a></p>
+            <p class="m--0 footer--para">
               We are always happy to try new things, send us your suggestions!
             </p>
-            <p><a class="footer__link">Fill in the form</a></p>
+            <p class="m--0 footer--para"><a href="javascript:void(0);" class="footer__link">Fill in the form</a></p>
           </div>
-          <div class="footer__item">
-            <p class="m--0">&copy; The Grilled Prawn</p>
-            <p class="m--0">
+          <div class="footer__item copy__item">
+            <p class="m--0 footer__copyright footer--para footer--copyhead">&copy; The Grilled Prawn</p>
+            <p class="m--0 footer__copyright footer--para">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
               imperdiet, lectus quis interdum viverra, erat mi consectetur mi, a
               fringilla odio risus vel augue. Mauris tempor ligula fringilla
               magna iaculis, non vulputate tellus interdum.
             </p>
-            <p class="m--0">
+            <p class="m--0 footer__copyright footer--para">
               The images and recipes ideas were taken from spoonforkbacon.com
               and the icons from Google Material Icons.
             </p>
